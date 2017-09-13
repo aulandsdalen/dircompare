@@ -24,7 +24,7 @@ contents.each_line do |fname|
 		md5hash = Digest::MD5.hexdigest(File.read(fname))
 		print "= #{md5hash}\n"
 		csvstring = "#{rname},#{size},#{md5hash}"
-		open('output.csv', 'a') { |f|
+		open("output-#{filename}.csv", 'a') { |f|
 			f.puts csvstring
 		}
 	rescue Exception => msg
